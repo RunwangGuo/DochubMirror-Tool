@@ -53,10 +53,10 @@ jobs:
         # docker login -u $ALIYUN_REGISTRY_USER -p $ALIYUN_REGISTRY_PASSWORD $ALIYUN_REGISTRY
 
         while IFS= read -r line || [ -n "$line" ]; do
-        docker run --net=host quay.io/skopeo/stable:latest copy --debug --multi-arch all --dest-username 北京南山拓谱科技有限公司 --dest-password Y1bMonAcgQ4NC7Fr $line docker://registry.cn-qingdao.aliyuncs.com/dochub-mirrors/nginx:stable-alpine
+        docker run --net=host quay.io/skopeo/stable:latest copy --debug --multi-arch all --dest-username $ALIYUN_REGISTRY_USER --dest-password $ALIYUN_REGISTRY_PASSWORD docker://docker.io/library/$line docker://$ALIYUN_REGISTRY/$ALIYUN_NAME_SPACE/$line
         # while IFS= read -r line || [ -n "$line" ]; do
         #   echo "Processing image: $line"
-          
+        # docker://docker.io/library/nginx:stable-alpine  
         #   # Process amd64 architecture
         #   echo "Pulling amd64 image..."
         #   docker pull --platform linux/amd64 $line
