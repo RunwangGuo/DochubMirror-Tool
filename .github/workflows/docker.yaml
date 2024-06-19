@@ -50,34 +50,36 @@ jobs:
 
     - name: Build and push image Aliyun
       run: |
-        docker login -u $ALIYUN_REGISTRY_USER -p $ALIYUN_REGISTRY_PASSWORD $ALIYUN_REGISTRY
-        while IFS= read -r line || [ -n "$line" ]; do
-          echo "Processing image: $line"
+        # docker login -u $ALIYUN_REGISTRY_USER -p $ALIYUN_REGISTRY_PASSWORD $ALIYUN_REGISTRY
+
+        docker run --net=host quay.io/skopeo/stable:latest copy --debug --multi-arch all --dest-username 北京南山拓谱科技有限公司 --dest-password Y1bMonAcgQ4NC7Fr $line registry.cn-qingdao.aliyuncs.com/dochub-mirrors/nginx:stable-alpine
+        # while IFS= read -r line || [ -n "$line" ]; do
+        #   echo "Processing image: $line"
           
-          # Process amd64 architecture
-          echo "Pulling amd64 image..."
-          docker pull --platform linux/amd64 $line
-          image=$(echo "$line" | awk '{print $NF}')
-          new_image="$ALIYUN_REGISTRY/$ALIYUN_NAME_SPACE/$image"
-          echo "Tagging amd64 image..."
-          docker tag $image $new_image
-          echo "Pushing amd64 image..."
-          docker push $new_image
-          echo "Removing local amd64 image..."
-          docker rmi $image
-          docker rmi $new_image
+        #   # Process amd64 architecture
+        #   echo "Pulling amd64 image..."
+        #   docker pull --platform linux/amd64 $line
+        #   image=$(echo "$line" | awk '{print $NF}')
+        #   new_image="$ALIYUN_REGISTRY/$ALIYUN_NAME_SPACE/$image"
+        #   echo "Tagging amd64 image..."
+        #   docker tag $image $new_image
+        #   echo "Pushing amd64 image..."
+        #   docker push $new_image
+        #   echo "Removing local amd64 image..."
+        #   docker rmi $image
+        #   docker rmi $new_image
           
-          # Process arm64 architecture
-          echo "Pulling arm64 image..."
-          docker pull --platform linux/arm64 $line
-          image=$(echo "$line" | awk '{print $NF}')
-          new_image="$ALIYUN_REGISTRY/$ALIYUN_NAME_SPACE/$image"
-          echo "Tagging arm64 image..."
-          docker tag $image $new_image
-          echo "Pushing arm64 image..."
-          docker push $new_image
-          echo "Removing local arm64 image..."
-          docker rmi $image
-          docker rmi $new_image
+        #   # Process arm64 architecture
+        #   echo "Pulling arm64 image..."
+        #   docker pull --platform linux/arm64 $line
+        #   image=$(echo "$line" | awk '{print $NF}')
+        #   new_image="$ALIYUN_REGISTRY/$ALIYUN_NAME_SPACE/$image"
+        #   echo "Tagging arm64 image..."
+        #   docker tag $image $new_image
+        #   echo "Pushing arm64 image..."
+        #   docker push $new_image
+        #   echo "Removing local arm64 image..."
+        #   docker rmi $image
+        #   docker rmi $new_image
           
         done < images.txt
