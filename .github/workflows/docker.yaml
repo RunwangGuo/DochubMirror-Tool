@@ -52,7 +52,7 @@ jobs:
       run: |
         # docker login -u $ALIYUN_REGISTRY_USER -p $ALIYUN_REGISTRY_PASSWORD $ALIYUN_REGISTRY
 
-        docker run --net=host quay.io/skopeo/stable:latest copy --debug --multi-arch all --dest-username 北京南山拓谱科技有限公司 --dest-password Y1bMonAcgQ4NC7Fr $line registry.cn-qingdao.aliyuncs.com/dochub-mirrors/nginx:stable-alpine
+        docker run --net=host quay.io/skopeo/stable:latest copy --debug --multi-arch all --dest-username 北京南山拓谱科技有限公司 --dest-password Y1bMonAcgQ4NC7Fr $line docker://registry.cn-qingdao.aliyuncs.com/dochub-mirrors/nginx:stable-alpine
         # while IFS= read -r line || [ -n "$line" ]; do
         #   echo "Processing image: $line"
           
