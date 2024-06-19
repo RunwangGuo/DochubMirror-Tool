@@ -1,1 +1,1 @@
-docker://docker.io/library/nginx:stable-alpine
+nginx:stable-alpine
