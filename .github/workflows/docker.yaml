@@ -14,7 +14,7 @@ env:
 jobs:
   build:
     name: Pull and Push Images
-    runs-on: centos:7.9
+    runs-on: centos:7.9.2009
     steps:
     - name: Checkout Code
       uses: actions/checkout@v4
