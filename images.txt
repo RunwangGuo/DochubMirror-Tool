@@ -1,2 +1,2 @@
-nginx:1.21.6
-rust:1.56
+nginx:stable-alpine
+rust:slim
