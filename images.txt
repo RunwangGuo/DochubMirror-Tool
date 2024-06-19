@@ -1,4 +1,4 @@
---platform=linux/arm64 nginx
---platform=linux/amd64 nginx
---platform=linux/arm64 rust
---platform=linux/amd64 rust
+nginx:1.21.6-stable
+nginx:1.21.6-alpine
+rust:1.56
+rust:1.56-slim
