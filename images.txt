@@ -2,7 +2,9 @@ nginx:stable-alpine
 maven:3.8.5-openjdk-17
 openjdk:17-slim
 openjdk:8-jre-slim
+node:16.20.2
 node:18
+node:18.12
 node:18.18
 node:18.18.2-buster-slim
 python:3.12
