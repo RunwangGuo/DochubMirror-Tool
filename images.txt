@@ -1,2 +1,13 @@
 nginx:stable-alpine
-rust:slim
+maven:3.8.5-openjdk-17
+openjdk:17-slim
+openjdk:8-jre-slim
+node:18
+node:18.18
+node:18.18.2-buster-slim
+python:3.12
+python:3.8
+rust:slim-buster
+rust:1.78.0
+debian:buster-slim
+debian:bookworm-slim
