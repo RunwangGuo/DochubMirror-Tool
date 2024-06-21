@@ -13,3 +13,4 @@ rust:slim-buster
 rust:1.78.0
 debian:buster-slim
 debian:bookworm-slim
+alpine:3.14
