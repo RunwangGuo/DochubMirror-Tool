@@ -29,7 +29,7 @@ jobs:
           echo -e "\033[35m$num_slashes\033[0m"
           if [[ $num_slashes == 2 ]]; then
             full_path=$line
-            image_name=${full_path%%*/}
+            image_name=$(echo $full_path | awk -F '/' '{print $NF}')
             echo -e "\033[35m$full_path\033[0m"
             echo -e "\033[35m$image_name\033[0m"
           elif [[ $num_slashes == 1 ]]; then
