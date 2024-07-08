@@ -44,7 +44,7 @@ jobs:
             echo -e "\033[35m$image_name\033[0m"
           else
             echo ":("
-            echo -e "\033[35m":("\033[0m"
+            echo -e "\033[35mGGGGGGGGGG\033[0m"
           fi
           docker run --net=host quay.io/skopeo/stable:latest copy --debug --multi-arch all --dest-username $ALIYUN_REGISTRY_USER --dest-password $ALIYUN_REGISTRY_PASSWORD docker://$full_path docker://$ALIYUN_REGISTRY/$ALIYUN_NAME_SPACE/$image_name
           docker system prune -f
