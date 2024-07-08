@@ -1,1 +1,1 @@
-quay.io/buildah/stable
+arronyr/ihec
