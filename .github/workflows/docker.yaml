@@ -26,17 +26,25 @@ jobs:
       run: |
         while IFS= read -r line || [ -n "$line" ]; do
           num_slashes=$(echo "$line" | grep -c '/')
+          echo -e "\033[35m$num_slashes\033[0m"
           if [[ $num_slashes == 2 ]]; then
             full_path=$line
             image_name=${full_path%%*/}
+            echo -e "\033[35m$full_path\033[0m"
+            echo -e "\033[35m$image_name\033[0m"
           elif [[ $num_slashes == 1 ]]; then
             full_path="docker.io/$line"
             image_name=${full_path%%*/}
+            echo -e "\033[35m$full_path\033[0m"
+            echo -e "\033[35m$image_name\033[0m"
           elif [[ $num_slashes == 1 ]]; then
             full_path="docker.io/library/$line"
             image_name=$line
+            echo -e "\033[35m$full_path\033[0m"
+            echo -e "\033[35m$image_name\033[0m"
           else
             echo ":("
+            echo -e "\033[35m":("\033[0m"
           fi
           docker run --net=host quay.io/skopeo/stable:latest copy --debug --multi-arch all --dest-username $ALIYUN_REGISTRY_USER --dest-password $ALIYUN_REGISTRY_PASSWORD docker://$full_path docker://$ALIYUN_REGISTRY/$ALIYUN_NAME_SPACE/$image_name
           docker system prune -f
