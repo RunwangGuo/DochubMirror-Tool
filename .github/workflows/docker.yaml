@@ -25,6 +25,7 @@ jobs:
     - name: Build and push image Aliyun
       run: |
         while IFS= read -r line || [ -n "$line" ]; do
+          echo "Processing input: $line"
           num_slashes=$(echo "$line" | grep -c '/')
           echo -e "\033[35m$num_slashes\033[0m"
           if [[ $num_slashes == 2 ]]; then
