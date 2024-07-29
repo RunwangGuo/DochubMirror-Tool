@@ -39,6 +39,7 @@ jobs:
             echo -e "\033[35m$full_path\033[0m"
             echo -e "\033[35m$image_name\033[0m"
           elif [[ $num_slashes == 0 ]]; then
+            echo "Processing input: $line"
             full_path="docker.io/library/$line"
             image_name=$line
             echo -e "\033[35m$full_path\033[0m"
