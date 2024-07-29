@@ -1,1 +1,1 @@
-kubesphere/kubefed:v0.8.1
+node:18.20.0
