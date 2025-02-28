@@ -1,4 +1,4 @@
-# [dochub-mirror-tools](https://github.com/RunwangGuo/dochub-mirror-tools)
+# [DochubMirror-Tool](https://github.com/RunwangGuo/DochubMirror-Tool)
 
 # 特性
 
